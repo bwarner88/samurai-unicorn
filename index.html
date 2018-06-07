@@ -14,43 +14,25 @@
 </head>
 
 <body>
-    <nav class="header-bar navbar navbar-light bg-dark">
-        <div class="container-fluid justify-content-around">
-            <!-- <a class="navbar-brand" href="./index.html">
-                <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-            </a> -->
-            <div class="row">
-                <h1 class="nav text-light" id="header-text">SU</h1>
-                <form class="form-inline my-2 my-lg-0 ml-2">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="row">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="./index.html">
-                            <i class="fas fa-home"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="./favorite.html">
-                            <i class="fas fa-heart"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="./about.html">
-                            <i class="fas fa-users"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
+    <section class="container text-center" id="main-box">
+        <img class="text-center" src="./assets/images/logo-no.png" alt="Samurai Unicorn">
+        <form class="form-inline justify-content-center">
+            <div class="form-group mx-sm-2 mb-2">
+                <input type="text" class="form-control" id="game-input">
+            </div>
+            <button type="submit" class="btn btn-dark mb-2">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <h3 class="lead">
+            What are you looking for?
+        </h3>
+    </section>
 
+    <footer class="fixed-bottom bg-dark" id="footer">
+
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

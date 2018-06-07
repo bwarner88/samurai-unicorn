@@ -3,10 +3,23 @@
     src: url(../fonts/American_Captain.ttf);
     }
 
+body {
+    background-color: #f8f9fa;
+}
+
 .header-bar {
     border-bottom: solid 2px black
 }
 
 #header-text {
     font-family: AmericanCaptain;
+}
+
+#main-box {
+    margin-top: 10vh; 
+  }
+
+#footer {
+    height: 5vh;
+    border-top: 4px solid slategray;
 }
