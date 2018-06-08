@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Honor Before Rainbows</title>
+    <title>About the Samurai Unicorn Team!</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
@@ -15,41 +15,34 @@
 
 <body>
 
-    <div id="clips-display"> </div>
-    
-  
-
-       
- 
-  
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-dark">
-        <div class="container">
+    <nav class="header-bar navbar navbar-light bg-dark">
+        <div class="container-fluid justify-content-around">
             <!-- <a class="navbar-brand" href="./index.html">
-                        <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-                    </a> -->
+                    <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+                </a> -->
             <div class="row">
-                <h1 class="nav" id="header-text"></h1>
+                <h1 class="nav text-light" id="header-text">SU</h1>
+                <form class="form-inline my-2 my-lg-0 ml-2">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
             <div class="row">
-                <!-- <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-                            <button class="btn btn-link text-dark my-2 my-sm-0" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form> -->
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link active text-dark" href="./index.html">
+                        <a class="nav-link active text-light" href="./index.html">
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-dark" href="./favorite.html">
+                        <a class="nav-link active text-light" href="./favorite.html">
                             <i class="fas fa-heart"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active text-dark" href="./about.html">
+                        <a class="nav-link active text-light" href="./about.html">
                             <i class="fas fa-users"></i>
                         </a>
                     </li>
@@ -58,23 +51,21 @@
         </div>
     </nav>
 
-    <div class="container text-center" id="main-box">
-        <img class="text-center" src="./assets/images/logo-no.png" alt="Samurai Unicorn">
-        <form class="form-inline justify-content-center">
-            <div class="form-group mx-sm-2 mb-2">
-                <input type="text" class="form-control" id="game-input">
-            </div>
-            <button type="submit" class="btn btn-dark mb-2">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-        <h3 class="lead">
-            What are you looking for?
-        </h3>
+    <div class="container mt-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
+                or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+        </div>
     </div>
 
     <footer class="fixed-bottom bg-dark" id="footer">
-        <p class="text-center mt-1 text-secondary">Since 2018</p>
+
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -82,9 +73,6 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-    
-    <script src="https://embed.twitch.tv/embed/v1.js"></script>
-    
 </body>
 
 </html>
