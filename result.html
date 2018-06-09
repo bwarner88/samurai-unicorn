@@ -23,8 +23,8 @@
             <h1 class="nav text-light" id="header-text">SAMURAI UNICORN</h1>
             <div class="d-flex justify-content-end">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-                    <button class="btn btn-link text-light my-2 my-sm-0" type="submit">
+                    <input id="game-input" class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
+                    <button id="search-button" class="btn btn-link text-light my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -48,6 +48,12 @@
             </div>
         </div>
     </nav>
+    <!-- Create a final page display for the game you want -->
+    <div class="container">
+        <div class="jumbotron">
+            <div id="results-game-display"></div>
+        </div>
+    </div>
 
 
     <footer class="fixed-bottom bg-dark" id="footer">
