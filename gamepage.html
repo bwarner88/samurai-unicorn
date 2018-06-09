@@ -23,8 +23,8 @@
             <h1 class="nav text-light" id="header-text">SAMURAI UNICORN</h1>
             <div class="d-flex justify-content-end">
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-                    <button class="btn btn-link text-light my-2 my-sm-0" type="submit">
+                    <input id="game-input" class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
+                    <button id="search-button" class="btn btn-link text-light my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -48,13 +48,63 @@
             </div>
         </div>
     </nav>
+    <!-- Create the container to display game data, make 9 columns to display up to 9 results -->
+    <div class="container">
+        <!-- Create first row with three columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="game-display0"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display1"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display2"></div>
+            </div>
+        </div>
+        <!-- Create second row with three columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="game-display3"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display4"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display5"></div>
+            </div>
+        </div>
+        <!-- Create third row with three columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="game-display6"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display7"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="game-display8"></div>
+            </div>
+        </div>
+    </div>
 
+<!-- Div to store the Twitch Game Clips -->
     <div id="display-data">
         <div id="clips-display"></div>
     </div>
 
 
     <footer class="fixed-bottom bg-dark" id="footer">
+    <!-- this is a temporary search bar to check the functionality of the code -->
+    <!-- <form class="form-inline justify-content-center">
+        <div class="form-group mx-sm-2 mb-2">
+            <input type="text" class="form-control" id="game-input">
+        </div>
+        <a id="search-button" type="submit" class="btn btn-dark mb-2" >
+            <i class="fas fa-search"></i>
+        </a>
+    </form> -->
+    <!-- end code for temporary search bar -->
 
     </footer>
 
