@@ -18,26 +18,31 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
     <div class="container">
-      <a id="header-text" href="./index.html">
+      <a class="navbar-brand" id="header-text" href="./index.html">
         <h1 class="nav text-light">SAMURAI UNICORN</h1>
       </a>
-      <div class="d-flex justify-content-end">
-        <form class="form-inline my-2 my-lg-0">
-          <input id="game-input" class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-        </form>
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active text-light" href="./index.html">
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-flex justify-content-end" id="navbar-header" style="">
+        <ul class="navbar-nav">
+          <form class="form-inline my-2 my-lg-0">
+            <input id="game-input" class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
+          </form>
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="./index.html">
               <i class="fas fa-home"></i>
+              <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-light" href="./favorite.html">
+            <a class="nav-link text-light" href="./favorite.html">
               <i class="fas fa-heart"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-light" href="./about.html">
+            <a class="nav-link text-light" href="./about.html">
               <i class="fas fa-users"></i>
             </a>
           </li>
@@ -55,7 +60,6 @@
       <p class="lead">Samurai Unicorn is a simple to use web based utility to help you find video games that you might want to play. See
         all the information about a game in a clean, easy to read format. Trailers, Twitch and all the details in one spot.
       </p>
-      <a href="#" class="btn btn-primary btn-lg">Start Searching!</a>
     </header>
     <!---Jumbo part 2-->
     <header class="jumbotron my-4">

@@ -36,10 +36,12 @@ body {
     margin: 4%;
 }
 
+#info-text {
+    font-family: 'Roboto', sans-serif;
+}
 
-.game-display {
+#game-display {
     box-shadow: 5px 5px;
-    
 }
 
 #user-choice {
@@ -51,25 +53,33 @@ body {
     margin-top: 4%;
 }   */
 
-.game-box:hover {
+#game-display:hover {
     background-color: #DCDCDC;
     border-radius: 25px;
 }
 
-div {
-    float: left;
-    margin: 1%;
+#clips-display {
+    display: inline-block;
+    width: 100%;
 }
 
-iframe {
-    width: 120%;
+.twitchClip {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+.twitchClip iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 4px darkgray;
+    border-radius: 25px;
 }
 
-.player-video {
-    width: 50%;
-}
-  
 .card {
     height: 100%;
 }
-  
