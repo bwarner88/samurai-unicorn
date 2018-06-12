@@ -44,7 +44,7 @@ function giantBomb() {
                 var gameDisplay = $("<div>");
                 gameDisplay.attr({
                     id: "game-display" + i,
-                    class: "card text-center col-md-4 shadow border border-secondary rounded p-2 bg-light mx-3"
+                    class: "card text-center col-md-4 shadow border border-secondary rounded p-2 bg-light my-3 mx-3"
                 });
                 $("#game-box").append(gameDisplay);
 
