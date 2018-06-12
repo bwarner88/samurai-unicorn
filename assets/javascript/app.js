@@ -42,26 +42,29 @@ $(document).ready(function () {
 
                 for (var i = 0; i < 9; i++) {
 
-                    var rating = $("<h3>");
-                    rating.text(data.results[i].original_game_rating[0].name);
-                    $(".game-display" + i).prepend(rating);
-
-                    var platforms = $("<h3>");
-                    platforms.text(data.results[i].platforms[0].name);
-                    $(".game-display" + i).prepend(platforms);
-
-                    var info = $("<p>");
-                    info.text(data.results[i].deck);
-                    $('.game-display' + i).prepend(info);
-                    $('#results-game-display').prepend(info);
-
-
                     var img = $("<img>");
                     img.attr("id", "game-image");
                     img.attr("class", "image-click");
                     img.attr("value", data.results[i].name);
                     img.attr("src", data.results[i].image.original_url);
                     $(".game-display" + i).append(img);
+
+
+                    var rating = $("<h3>");
+                    rating.text(data.results[i].original_game_rating[0].name);
+                    $(".game-display" + i).append(rating);
+
+                    var platforms = $("<h3>");
+                    platforms.text(data.results[i].platforms[0].name);
+                    $(".game-display" + i).append(platforms);
+
+                     var info = $("<p>");
+                    info.text(data.results[i].deck);
+                    $('.game-display' + i).append(info);
+                    $('#results-game-display').append(info);
+                    
+
+                  
 
                 };
             },
