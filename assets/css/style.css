@@ -48,4 +48,9 @@ h3{
 
 div {
     float: left;
+    margin: 1%;
+}
+
+iframe {
+    width: 120%;
 }

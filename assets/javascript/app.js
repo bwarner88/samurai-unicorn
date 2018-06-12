@@ -145,12 +145,13 @@ $(document).ready(function () {
                 console.log(response.data)
                 console.log("baxios")
                 clipList = response.data;
-                var clipsDisplay = document.getElementById('clips-display');
+                var clipsDisplay = $('#clips-display');
                 console.log(clipList)
                 clipList.clips.forEach(function (clip, index, array) {
-                    clipItem = document.createElement('div');
-                    clipItem.innerHTML = clip.embed_html;
-                    clipsDisplay.appendChild(clipItem);
+                    clipItem = $('<div>');
+                    clipItem.attr('class', 'twitchClip')
+                    clipItem.html(clip.embed_html);
+                    clipsDisplay.append(clipItem);
                 })
             })
             .catch(function (err) {
