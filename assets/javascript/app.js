@@ -48,10 +48,23 @@ $(document).ready(function () {
                     img.attr("value", data.results[i].name);
                     img.attr("src", data.results[i].image.original_url);
                     $(".game-display" + i).append(img);
-                   
+
+
+                    var rating = $("<h3>");
+                    rating.text(data.results[i].original_game_rating[0].name);
+                    $(".game-display" + i).append(rating);
+
                     var platforms = $("<h3>");
                     platforms.text(data.results[i].platforms[0].name);
                     $(".game-display" + i).append(platforms);
+
+                    var info = $("<p>");
+                    info.text(data.results[i].deck);
+                    $('.game-display' + i).append(info);
+                    $('#results-game-display').append(info);
+
+
+
 
                     var rating = $("<h3>");
                     rating.text(data.results[i].original_game_rating[0].name);
@@ -61,7 +74,7 @@ $(document).ready(function () {
                     info.attr("card-text");
                     info.text(data.results[i].deck);
                     $('.game-display' + i).append(info);
-                
+
                 };
             },
             error: function (error) {
@@ -107,23 +120,23 @@ $(document).ready(function () {
                 console.log(data.results[0].name);
 
                 var name = $("<h2>");
-                    name.text(data.results[0].name);
-                    $("#game-name").append(name);
+                name.text(data.results[0].name);
+                $("#game-name").append(name);
 
                 var img = $("<img>");
-                    img.attr("id", "game-image");
-                    img.attr("src", data.results[0].image.original_url);
-                    $("#game-results-display").append(img);
+                img.attr("id", "final-game-image");
+                img.attr("src", data.results[0].image.original_url);
+                $("#game-results-display").append(img);
 
                 var description = $("<div>");
-                    description.html(data.results[0].description);
-                    $("#description").append(description);
+                description.html(data.results[0].description);
+                $("#description").append(description);
             },
             error: function (error) {
                 console.log(error);
             }
         });
-        
+
 
     }
 
@@ -162,36 +175,40 @@ $(document).ready(function () {
 
             }
         });
-        
+
     });
 
 
     function twitchDisplay() {
-    var httpRequest = new XMLHttpRequest();
-    axios({
-        url: "https://api.twitch.tv/kraken/clips/top?limit=2&game=" + userParam.search + "&trending=true",
-        headers: {
-            "Client-ID": "7wqn4lbccr164m3mxkpoxfxvc9tso7",
-            'Accept': 'application/vnd.twitchtv.v5+json'
-        },
-        method: 'GET',
-    })
+        var httpRequest = new XMLHttpRequest();
+        axios({
+            url: "https://api.twitch.tv/kraken/clips/top?limit=2&game=" + userParam.search + "&trending=true",
+            headers: {
+                "Client-ID": "7wqn4lbccr164m3mxkpoxfxvc9tso7",
+                'Accept': 'application/vnd.twitchtv.v5+json'
+            },
+            method: 'GET',
+        })
 
-        .then(function (response) {
-            console.log(response.data)
-            console.log("baxios")
-            clipList = response.data;
-            var clipsDisplay = document.getElementById('clips-display');
-            console.log(clipList)
-            clipList.clips.forEach(function (clip, index, array) {
-                clipItem = document.createElement('div');
-                clipItem.innerHTML = clip.embed_html;
-                clipsDisplay.appendChild(clipItem);
+            .then(function (response) {
+                console.log(response.data)
+                console.log("baxios")
+                clipList = response.data;
+                var clipsDisplay = $('#clips-display');
+                console.log(clipList)
+                clipList.clips.forEach(function (clip, index, array) {
+                    clipItem = $('<div>');
+                    clipItem.attr('class', 'twitchClip')
+                    clipItem.html(clip.embed_html);
+                    clipsDisplay.append(clipItem);
+                })
             })
-        })
-        .catch(function (err) {
-            console.error(err)
-        })
+            .catch(function (err) {
+                console.error(err)
+            })
+            .catch(function (err) {
+                console.error(err)
+            })
     }
 
-})
+});

@@ -27,6 +27,32 @@ body {
 #game-image {
     height: 50%;
     width: 50%;
+    float: left;
+    margin: 4%;
+}
+
+
+.game-display {
+    box-shadow: 5px 5px;
+    
+}
+
+h3{
+    margin-top: 4%;
+}
+
+.col-md-4:hover {
+    background-color: #DCDCDC;
+    border-radius: 25px;
+}
+
+div {
+    float: left;
+    margin: 1%;
+}
+
+iframe {
+    width: 120%;
 }
 
 .player-video {
