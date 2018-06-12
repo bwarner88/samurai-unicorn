@@ -49,7 +49,6 @@ $(document).ready(function () {
                     img.attr("src", data.results[i].image.original_url);
                     $(".game-display" + i).append(img);
 
-
                     var rating = $("<h3>");
                     rating.text(data.results[i].original_game_rating[0].name);
                     $(".game-display" + i).append(rating);
@@ -62,18 +61,6 @@ $(document).ready(function () {
                     info.text(data.results[i].deck);
                     $('.game-display' + i).append(info);
                     $('#results-game-display').append(info);
-
-
-
-
-                    var rating = $("<h3>");
-                    rating.text(data.results[i].original_game_rating[0].name);
-                    $(".game-display" + i).append(rating);
-
-                    var info = $("<p>");
-                    info.attr("card-text");
-                    info.text(data.results[i].deck);
-                    $('.game-display' + i).append(info);
 
                 };
             },
@@ -202,9 +189,6 @@ $(document).ready(function () {
                     clipItem.html(clip.embed_html);
                     clipsDisplay.append(clipItem);
                 })
-            })
-            .catch(function (err) {
-                console.error(err)
             })
             .catch(function (err) {
                 console.error(err)
