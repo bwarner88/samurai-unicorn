@@ -14,18 +14,16 @@ $(document).ready(function () {
     }
 
     var userParam = getUrlParams(location.href);
-    console.log(userParam);
     var gameName;
 
     //GIANT BOMB API CALL SAVED IN A FUNCTION
     function giantBomb() {
         for (i = 0; i < 9; i++) {
-            $(".game-display" + i).empty();
+            $("#game-display" + i).empty();
         };
 
         var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
         var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
-        console.log(gbURL);
 
         $.ajax({
             url: gbURL,
@@ -34,33 +32,41 @@ $(document).ready(function () {
             crossDomain: true,
             jsonp: 'json_callback',
             complete: function () {
-                console.log("done")
+                console.log("Done")
             },
             success: function (data) {
                 console.log(data);
                 console.log(data.results[0].name);
 
-                for (var i = 0; i < 9; i++) {
+                for (var i = 0; i < data.results.length - 1; i++) {
+                    
+                    $("#user-choice").text(userParam.search.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    }));
+                    var gameDisplay = $("<div>");
+                    gameDisplay.attr({
+                        id: "game-display" + i,
+                        class: "card text-center col-md-4 border border-secondary rounded p-2 bg-light"
+                    });
+                    $("#game-box").append(gameDisplay);
 
-                    var img = $("<img>");
-                    img.attr("id", "game-image");
-                    img.attr("class", "image-click");
-                    img.attr("value", data.results[i].name);
-                    img.attr("src", data.results[i].image.original_url);
-                    $(".game-display" + i).append(img);
-
-                    var rating = $("<h3>");
-                    rating.text(data.results[i].original_game_rating[0].name);
-                    $(".game-display" + i).append(rating);
-
-                    var platforms = $("<h3>");
-                    platforms.text(data.results[i].platforms[0].name);
-                    $(".game-display" + i).append(platforms);
+                    var gameImg = $("<img>");
+                    gameImg.attr({
+                        id: "game-image",
+                        class: "image-click mx-auto",
+                        value: data.results[i].name,
+                        src: data.results[i].image.small_url
+                    });
 
                     var info = $("<p>");
                     info.text(data.results[i].deck);
-                    $('.game-display' + i).append(info);
-                    $('#results-game-display').append(info);
+
+                    var rating = $("<h3>");
+                    rating.text(data.results[i].original_game_rating[0].name);
+
+                    var platforms = $("<h3>");
+                    platforms.text(data.results[i].platforms[0].name);
+                    $("#game-display" + i).append(name, gameImg, info, rating, platforms);
 
                 };
             },
@@ -112,7 +118,7 @@ $(document).ready(function () {
 
                 var img = $("<img>");
                 img.attr("id", "final-game-image");
-                img.attr("src", data.results[0].image.original_url);
+                img.attr("src", data.results[0].image.small_url);
                 $("#game-results-display").append(img);
 
                 var description = $("<div>");
@@ -126,7 +132,6 @@ $(document).ready(function () {
 
 
     }
-
 
     //Create on click event to search for a video game
     $("#search-button", "#start-button").on("click", function (event) {

@@ -11,22 +11,19 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Roboto|Exo+2" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
         <div class="container">
-            <!-- <a class="navbar-brand" href="./index.html">
-                        <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-                    </a> -->
-            <h1 class="nav text-light" id="header-text">SAMURAI UNICORN</h1>
+            <a id="header-text" href="./index.html">
+                <h1 class="nav text-light">SAMURAI UNICORN</h1>
+            </a>
             <div class="d-flex justify-content-end">
                 <form class="form-inline my-2 my-lg-0">
                     <input id="game-input" class="form-control mr-sm-2" type="search" placeholder="Search Games" aria-label="Search">
-                    <button id="search-button" class="btn btn-link text-light my-2 my-sm-0" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
                 </form>
                 <ul class="nav">
                     <li class="nav-item">
@@ -48,44 +45,16 @@
             </div>
         </div>
     </nav>
-    <!-- Create the container to display game data, make 9 columns to display up to 9 results -->
+
+    <!-- Create the container to display game data, API call creates cards off of data.results.length -->
     <div class="container">
-        <div class="jumbotron">
-            <!-- Create first row with three columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="game-display0"></div>
+        <div class="row d-flex justify-content-center">
+            <div class="jumbotron">
+                <h1 class="display-4 text-center" id="user-choice"></h1>
+                <div class="row justify-content-center" id="game-box">
+
                 </div>
-                <div class="col-md-4">
-                    <div class="game-display1"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="game-display2"></div>
-                </div>
-            </div>
-            <!-- Create second row with three columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="game-display3"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="game-display4"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="game-display5"></div>
-                </div>
-            </div>
-            <!-- Create third row with three columns -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="game-display6"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="game-display7"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="game-display8"></div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -101,6 +70,8 @@
     </form> -->
     <!-- end code for temporary search bar -->
 
+    <footer class="fixed-bottom bg-dark" id="footer">
+        <p class="text-center mt-1 text-secondary">Since 2018 &copy;</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
