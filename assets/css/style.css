@@ -54,3 +54,8 @@ div {
 iframe {
     width: 120%;
 }
+
+.player-video {
+    height: 20%;
+    width: 20%;
+}

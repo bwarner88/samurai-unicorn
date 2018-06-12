@@ -58,13 +58,22 @@ $(document).ready(function () {
                     platforms.text(data.results[i].platforms[0].name);
                     $(".game-display" + i).append(platforms);
 
-                     var info = $("<p>");
+                    var info = $("<p>");
                     info.text(data.results[i].deck);
                     $('.game-display' + i).append(info);
                     $('#results-game-display').append(info);
-                    
 
-                  
+
+
+
+                    var rating = $("<h3>");
+                    rating.text(data.results[i].original_game_rating[0].name);
+                    $(".game-display" + i).append(rating);
+
+                    var info = $("<p>");
+                    info.attr("card-text");
+                    info.text(data.results[i].deck);
+                    $('.game-display' + i).append(info);
 
                 };
             },
@@ -77,7 +86,7 @@ $(document).ready(function () {
     }
 
     //USER INPUT GAME SEARCH ON MAIN PAGE, CLICKING SEARCH SAVES VALUE OF INPUT
-    $("#start-button").on("click", function (event) {
+    $("#start-button, #search-button").on("click", function (event) {
         event.preventDefault()
         gameName = $("#game-input").val().trim();
         location.href = "./gamepage.html?search=" + gameName;
@@ -91,11 +100,49 @@ $(document).ready(function () {
     //CHECK TO SEE WE'RE ON RESULTS PAGE
     if (whatPage === 'result') {
         twitchDisplay();
+
+        //Create a custom API call to Giant-BOmb for the final results page
+        var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
+        var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
+        console.log(gbURL);
+
+        $.ajax({
+            url: gbURL,
+            method: 'GET',
+            dataType: 'jsonp',
+            crossDomain: true,
+            jsonp: 'json_callback',
+            complete: function () {
+                console.log("done")
+            },
+            success: function (data) {
+                console.log(data);
+                console.log(data.results[0].name);
+
+                var name = $("<h2>");
+                name.text(data.results[0].name);
+                $("#game-name").append(name);
+
+                var img = $("<img>");
+                img.attr("id", "final-game-image");
+                img.attr("src", data.results[0].image.original_url);
+                $("#game-results-display").append(img);
+
+                var description = $("<div>");
+                description.html(data.results[0].description);
+                $("#description").append(description);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+
     }
 
 
     //Create on click event to search for a video game
-    $("#search-button").on("click", function (event) {
+    $("#search-button", "#start-button").on("click", function (event) {
         event.preventDefault();
         giantBomb();
 
@@ -119,14 +166,16 @@ $(document).ready(function () {
             crossDomain: true,
             jsonp: 'json_callback',
             complete: function () {
-                console.log("done")
+                console.log("done for real")
+
             },
             success: function (data) {
                 console.log(data);
-                console.log(data.results[0].name);
+                console.log("giant-bomb");
 
             }
         });
+
     });
 
 
@@ -157,6 +206,9 @@ $(document).ready(function () {
             .catch(function (err) {
                 console.error(err)
             })
+            .catch(function (err) {
+                console.error(err)
+            })
     }
 
-})
+});
