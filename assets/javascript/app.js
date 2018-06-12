@@ -1,4 +1,3 @@
-
 function getUrlParams(prop) {
     var params = {};
     var search = decodeURIComponent(location.href.slice(location.href.indexOf('?') + 1));
@@ -15,11 +14,9 @@ function getUrlParams(prop) {
 var userParam = getUrlParams(location.href);
 console.log(userParam);
 var gameName;
-var clipList;
 
 //GIANT BOMB API CALL SAVED IN A FUNCTION
 function giantBomb() {
-
     for (i = 0; i < 9; i++) {
         $(".game-display" + i).empty();
     };
@@ -27,7 +24,6 @@ function giantBomb() {
     var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
     var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
     console.log(gbURL);
-
 
     $.ajax({
         url: gbURL,
@@ -44,29 +40,27 @@ function giantBomb() {
 
             for (var i = 0; i < 9; i++) {
 
+                var img = $("<img>");
+                img.attr("id", "game-image");
+                img.attr("class", "image-click");
+                img.attr("value", data.results[i].name);
+                img.attr("src", data.results[i].image.original_url);
+                $(".game-display" + i).append(img);
+
+
                 var rating = $("<h3>");
                 rating.text(data.results[i].original_game_rating[0].name);
-                $(".game-display" + i).prepend(rating);
+                $(".game-display" + i).append(rating);
 
                 var platforms = $("<h3>");
                 platforms.text(data.results[i].platforms[0].name);
-                $(".game-display" + i).prepend(platforms);
+                $(".game-display" + i).append(platforms);
 
                 var info = $("<p>");
                 info.text(data.results[i].deck);
-                $('.game-display' + i).prepend(info);
-                $('#results-game-display').prepend(info);
-
-
-                var img = $("<img>");
-                img.attr({
-                    id: "game-image",
-                    class: "image-click",
-                    value: data.results[i].name,
-                    src: data.results[i].image.original_url
-                });
-                $(".game-display" + i).append(img);
-
+                $('.game-display' + i).append(info);
+                $('#results-game-display').append(info);
+                
             };
         },
         error: function (error) {
@@ -115,7 +109,7 @@ $(document).on("click", ".image-click", function () {
 
     $.ajax({
         url: gbURL,
-        method: 'GET',  
+        method: 'GET',
         dataType: 'jsonp',
         crossDomain: true,
         jsonp: 'json_callback',
@@ -146,12 +140,12 @@ function twitchDisplay() {
             console.log(response.data)
             console.log("baxios")
             clipList = response.data;
-            var clipsDisplay = document.getElementById('clips-display');
+            var clipsDisplay = $("#clips-display");
             console.log(clipList)
             clipList.clips.forEach(function (clip, index, array) {
-                clipItem = document.createElement('div');
-                clipItem.innerHTML = clip.embed_html;
-                clipsDisplay.appendChild(clipItem);
+                clipItem = $("<div>")
+                clipItem.html(clip.embed_html);
+                clipsDisplay.append(clipItem);
             })
         })
         .catch(function (err) {
