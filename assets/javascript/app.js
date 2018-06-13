@@ -14,6 +14,9 @@ function getUrlParams(prop) {
 var userParam = getUrlParams(location.href);
 var gameName;
 
+//Hide the modal to be shown later
+$("#myModal").hide();
+
 //GIANT BOMB API CALL SAVED IN A FUNCTION
 function giantBomb() {
     for (i = 0; i < 9; i++) {
@@ -22,10 +25,10 @@ function giantBomb() {
 
     var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
     var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
-    
+
     $(".loading-div").show();
     $(".display-board").hide();
-    
+
     $.ajax({
         url: gbURL,
         method: 'GET',
@@ -38,10 +41,18 @@ function giantBomb() {
         success: function (data) {
             console.log(data);
             console.log(data.results[0].name);
-            
+
+            if (data.number_of_total_results === 0) {
+                $("#myModal").show();
+            };
+
+            if (data.results[0].aliases === null) {
+                $("#myModal").show();
+            }
+
             $(".display-board").show();
             $(".loading-div").hide();
-
+            
             for (var i = 0; i < data.results.length - 1; i++) {
 
                 $("#user-choice").text(userParam.search.toLowerCase().replace(/\b[a-z]/g, function (letter) {
@@ -60,6 +71,7 @@ function giantBomb() {
                     class: "image-click mx-auto",
                     value: data.results[i].name,
                     src: data.results[i].image.small_url
+
                 });
 
                 var info = $("<p>");
@@ -77,6 +89,7 @@ function giantBomb() {
         },
         error: function (error) {
             console.log(error);
+            console.log(data.number_of_total_results);
         }
     });
 
@@ -195,3 +208,7 @@ function twitchDisplay() {
             console.error(err)
         })
 }
+
+$(".modal-button").on("click", function () {
+    location.href = "./index.html";
+})

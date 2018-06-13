@@ -35,8 +35,14 @@ body {
     margin: 4%;
 }
 
+<<<<<<< HEAD
 #game-image:hover {
     cursor: pointer;
+=======
+#final-game-image {
+    height: 50%;
+    width: 50%;
+>>>>>>> 51bfc4b7862aa1ef4692cb852d43f0333055e43e
 }
 
 #info-text {
