@@ -22,7 +22,10 @@ function giantBomb() {
 
     var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
     var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
-
+    
+    $(".loading-div").show();
+    $(".display-board").hide();
+    
     $.ajax({
         url: gbURL,
         method: 'GET',
@@ -35,6 +38,9 @@ function giantBomb() {
         success: function (data) {
             console.log(data);
             console.log(data.results[0].name);
+            
+            $(".display-board").show();
+            $(".loading-div").hide();
 
             for (var i = 0; i < data.results.length - 1; i++) {
 
@@ -80,6 +86,7 @@ function giantBomb() {
 //USER INPUT GAME SEARCH ON MAIN PAGE, CLICKING SEARCH SAVES VALUE OF INPUT
 $("#start-button, #search-button").on("click", function (event) {
     event.preventDefault()
+    // $("#game-input").submit();
     gameName = $("#game-input").val().trim();
     location.href = "./gamepage.html?search=" + gameName;
 });
@@ -97,6 +104,9 @@ if (whatPage === 'result') {
     var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
     var gbURL = "https://www.giantbomb.com/api/search/?api_key=" + gbAPI + "&format=jsonp&query=" + userParam.search + "&resources=game";
 
+    $(".loading-div").show();
+    $(".display-board").hide();
+
     $.ajax({
         url: gbURL,
         method: 'GET',
@@ -107,6 +117,9 @@ if (whatPage === 'result') {
             console.log("Done")
         },
         success: function (data) {
+            $(".display-board").show();
+            $(".loading-div").hide();
+
             console.log(data);
             console.log(data.results[0].name);
 
@@ -115,13 +128,6 @@ if (whatPage === 'result') {
             name.text(data.results[0].name);
             $("#game-name").append(name);
 
-            // var img = $("<img>");
-            // img.attr("id", "final-game-image");
-            // img.attr("src", data.results[0].image.small_url);
-            // $("#game-results-display").append(img);
-
-            // var description = $("<div>");
-            // description.html(data.results[0].description);
             $("#description").append(data.results[0].description);
         },
         error: function (error) {
@@ -140,9 +146,6 @@ $("#search-button", "#start-button").on("click", function (event) {
 
 // Create an onlick event where if you click on a specific game image you can get specific results
 $(document).on("click", ".image-click", function () {
-    console.log($(this).attr("value"));
-    // alert($(this).attr("value"));
-
     var specificGame = $(this).attr("value");
     location.href = "./result.html?search=" + specificGame;
     var gbAPI = "4a12e90d2bea50d175659d20cfed7dd6425d84a3"
@@ -156,18 +159,14 @@ $(document).on("click", ".image-click", function () {
         crossDomain: true,
         jsonp: 'json_callback',
         complete: function () {
-            console.log("done for real")
 
         },
         success: function (data) {
-            console.log(data);
-            console.log("giant-bomb");
 
         }
     });
 
 });
-
 
 function twitchDisplay() {
     var httpRequest = new XMLHttpRequest();
