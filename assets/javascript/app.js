@@ -14,6 +14,9 @@ function getUrlParams(prop) {
 var userParam = getUrlParams(location.href);
 var gameName;
 
+//Hide the modal to be shown later
+$("#myModal").hide();
+
 //GIANT BOMB API CALL SAVED IN A FUNCTION
 function giantBomb() {
     for (i = 0; i < 9; i++) {
@@ -34,7 +37,14 @@ function giantBomb() {
         },
         success: function (data) {
             console.log(data);
-            console.log(data.results[0].name);
+
+            if (data.number_of_total_results === 0) {
+                $("#myModal").show();
+           };
+
+           if (data.results[0].aliases === null) {
+               $("#myModal").show();
+           }
 
             for (var i = 0; i < data.results.length - 1; i++) {
 
@@ -54,6 +64,7 @@ function giantBomb() {
                     class: "image-click mx-auto",
                     value: data.results[i].name,
                     src: data.results[i].image.small_url
+
                 });
 
                 var info = $("<p>");
@@ -71,6 +82,7 @@ function giantBomb() {
         },
         error: function (error) {
             console.log(error);
+            console.log(data.number_of_total_results);
         }
     });
 
@@ -196,3 +208,7 @@ function twitchDisplay() {
             console.error(err)
         })
 }
+
+$(".modal-button").on("click", function(){
+    location.href = "./index.html";
+})

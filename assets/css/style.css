@@ -36,6 +36,11 @@ body {
     margin: 4%;
 }
 
+#final-game-image {
+    height: 50%;
+    width: 50%;
+}
+
 #info-text {
     font-family: 'Roboto', sans-serif;
 }
