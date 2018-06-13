@@ -42,9 +42,9 @@ function giantBomb() {
                 $("#myModal").show();
            };
 
-           if (data.results[0].aliases === null) {
-               $("#myModal").show();
-           }
+        //    if (data.results[0].aliases === null) {
+        //        $("#myModal").show();
+        //    }
 
             for (var i = 0; i < data.results.length - 1; i++) {
 
@@ -72,17 +72,16 @@ function giantBomb() {
                 info.text(data.results[i].deck);
 
                 var rating = $("<h3>");
-                rating.text(data.results[i].original_game_rating[0].name);
+                // rating.text(data.results[i].original_game_rating[0].name);
 
                 var platforms = $("<h3>");
-                platforms.text(data.results[i].platforms[0].name);
+                // platforms.text(data.results[i].platforms[i].name);
                 $("#game-display" + i).append(name, gameImg, info, rating, platforms);
 
             };
         },
         error: function (error) {
             console.log(error);
-            console.log(data.number_of_total_results);
         }
     });
 
