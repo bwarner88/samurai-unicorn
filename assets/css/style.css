@@ -49,10 +49,6 @@ body {
     font-family: 'Exo 2', sans-serif;
 }
 
-/* h3{
-    margin-top: 4%;
-}   */
-
 #game-display:hover {
     background-color: #DCDCDC;
     border-radius: 25px;
@@ -82,4 +78,8 @@ body {
 
 .card {
     height: 100%;
+}
+
+.user-submit {
+    width: 100%
 }
