@@ -35,10 +35,6 @@ body {
     margin: 4%;
 }
 
-#game-image:hover {
-    cursor: pointer;
-}
-
 #info-text {
     font-family: 'Roboto', sans-serif;
 }
