@@ -31,6 +31,11 @@ body {
     margin: 4%;
 }
 
+#final-game-image {
+    height: 50%;
+    width: 50%;
+}
+
 
 .game-display {
     box-shadow: 5px 5px;
