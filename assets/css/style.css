@@ -35,11 +35,6 @@ body {
     margin: 4%;
 }
 
-#final-game-image {
-    height: 50%;
-    width: 50%;
-}
-
 #info-text {
     font-family: 'Roboto', sans-serif;
 }
@@ -84,9 +79,9 @@ body {
     height: 100%;
 }
 
-/* .user-submit {
-    width: 100%
-}    */
+.bio-pic {
+    width: 75%;
+}
 
 
 @media (max-width: 576px) {
