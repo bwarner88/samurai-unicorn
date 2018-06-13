@@ -32,7 +32,6 @@ body {
 #game-image {
     height: 50%;
     width: 50%;
-    float: left;
     margin: 4%;
 }
 
@@ -85,6 +84,13 @@ body {
     height: 100%;
 }
 
-.user-submit {
+/* .user-submit {
     width: 100%
+}    */
+
+
+@media (max-width: 576px) {
+    #main-logo {
+        width: 75%;
+    }
 }
