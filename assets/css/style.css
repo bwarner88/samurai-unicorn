@@ -15,13 +15,18 @@ body {
     font-family: AmericanCaptain;
 }
 
+#header-text:hover {
+    text-decoration: none;
+}
+
 #main-box {
-    margin-top: 15vh; 
+    margin-top: 10vh; 
   }
 
 #footer {
     height: 5vh;
     border-top: 4px solid slategray;
+    font-family: 'Roboto', sans-serif;
 }
 
 #game-image {
@@ -36,31 +41,50 @@ body {
     width: 50%;
 }
 
+#info-text {
+    font-family: 'Roboto', sans-serif;
+}
 
-.game-display {
+#game-display {
     box-shadow: 5px 5px;
-    
 }
 
-h3{
-    margin-top: 4%;
+#user-choice {
+    font-family: 'Lobster', cursive;
+    font-family: 'Exo 2', sans-serif;
 }
 
-.col-md-4:hover {
+#game-display:hover {
     background-color: #DCDCDC;
     border-radius: 25px;
 }
 
-div {
-    float: left;
-    margin: 1%;
+#clips-display {
+    display: inline-block;
+    width: 100%;
 }
 
-iframe {
-    width: 120%;
+.twitchClip {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+}
+.twitchClip iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 4px darkgray;
+    border-radius: 25px;
 }
 
-.player-video {
-    height: 20%;
-    width: 20%;
+.card {
+    height: 100%;
+}
+
+.user-submit {
+    width: 100%
 }
