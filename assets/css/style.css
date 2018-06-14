@@ -56,8 +56,11 @@ body {
     cursor: pointer;
 }
 
+#game-title {
+    font-family: 'Exo 2', sans-serif;
+}
+
 #user-choice {
-    font-family: 'Lobster', cursive;
     font-family: 'Exo 2', sans-serif;
 }
 

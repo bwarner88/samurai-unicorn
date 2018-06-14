@@ -50,7 +50,7 @@ function giantBomb() {
 
             for (var i = 0; i < data.results.length - 1; i++) {
 
-                $("#user-choice").text(userParam.search.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                $("#user-choice").text("Search: " + userParam.search.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                     return letter.toUpperCase();
                 }));
                 var gameDisplay = $("<div>");
@@ -69,16 +69,18 @@ function giantBomb() {
 
                 });
 
+                var gameTitle = $("<h5>");
+                gameTitle.attr("id", "game-title")
+                gameTitle.text(data.results[i].name);
+
+
                 var info = $("<p>");
                 info.attr("id", "info-text");
                 info.text(data.results[i].deck);
 
-                var rating = $("<h3>");
-                // rating.text(data.results[i].original_game_rating[0].name);
-
                 var platforms = $("<h3>");
                 // platforms.text(data.results[i].platforms[i].name);
-                $("#game-display" + i).append(name, gameImg, info, rating, platforms);
+                $("#game-display" + i).append(gameImg, gameTitle, info);
 
             };
         },
