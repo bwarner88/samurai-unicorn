@@ -21,12 +21,21 @@ body {
 
 #main-box {
     margin-top: 10vh; 
+    width: 35%;
   }
+
+#main-logo {
+    width: 100%;
+}
 
 #footer {
     height: 5vh;
     border-top: 4px solid slategray;
     font-family: 'Roboto', sans-serif;
+}
+
+.start-button {
+    display: none;
 }
 
 #game-image {
@@ -87,20 +96,24 @@ body {
     width: 75%;
 }
 
-.user-submit {
-    height: 100%;
-}
-
 #loader-image {
     font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 576px) {
-    
-    #main-logo {
-        width: 75%;
+    #main-box {
+        width: 100%;
     }
-    #start-button {
-        margin-top: 1vh;
+}
+
+@media (max-width: 768px) {
+    #main-logo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    #main-box {
+        width: 75%;
     }
 }
