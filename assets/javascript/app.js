@@ -1,10 +1,3 @@
-$(window).keydown(function (event) {
-    if (event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-    }
-});
-
 function getUrlParams(prop) {
     var params = {};
     var search = decodeURIComponent(location.href.slice(location.href.indexOf('?') + 1));
@@ -42,23 +35,18 @@ function giantBomb() {
         dataType: 'jsonp',
         crossDomain: true,
         jsonp: 'json_callback',
-        complete: function () {
-            console.log("Done")
-        },
         success: function (data) {
             console.log(data);
             console.log(data.results[0].name);
 
             if (data.number_of_total_results === 0) {
                 $("#myModal").show();
+                console.log("error");
             };
 
-            //    if (data.results[0].aliases === null) {
-            //        $("#myModal").show();
-            //    }
-
-            $(".display-board").show();
-            $(".loading-div").hide();
+            // if (data.results[0].aliases === null) {
+            //     $("#myModal").show();
+            // }
 
             for (var i = 0; i < data.results.length - 1; i++) {
 
@@ -94,6 +82,11 @@ function giantBomb() {
 
             };
         },
+        complete: function () {
+            console.log("Done")
+            $(".display-board").show();
+            $(".loading-div").hide();
+        },
         error: function (error) {
             console.log(error);
         }
@@ -103,10 +96,11 @@ function giantBomb() {
 }
 
 //USER INPUT GAME SEARCH ON MAIN PAGE, SEARCH SAVES VALUE OF INPUT
-$("#game-input").on("change", function (event) {    
-        event.preventDefault()
-        gameName = $("#game-input").val().trim();
-        location.href = "./gamepage.html?search=" + gameName;
+$(".start-button").on("click", function (event) {
+    event.preventDefault()
+    gameName = $("#game-input").val().trim();
+    console.log(gameName);
+    location.href = "./gamepage.html?search=" + gameName;
 });
 
 //CHECK TO SEE WE'RE ON GAMEPAGE
@@ -131,13 +125,8 @@ if (whatPage === 'result') {
         dataType: 'jsonp',
         crossDomain: true,
         jsonp: 'json_callback',
-        complete: function () {
-            console.log("Done")
-        },
-        success: function (data) {
-            $(".display-board").show();
-            $(".loading-div").hide();
 
+        success: function (data) {
             console.log(data);
             console.log(data.results[0].name);
 
@@ -148,6 +137,11 @@ if (whatPage === 'result') {
 
             $("#description").append(data.results[0].description);
         },
+        complete: function () {
+            console.log("Done")
+            $(".display-board").show();
+            $(".loading-div").hide();
+        },
         error: function (error) {
             console.log(error);
         }
@@ -156,7 +150,7 @@ if (whatPage === 'result') {
 }
 
 //Create on click event to search for a video game
-$("#game-input").on("change", function (event) {
+$(".start-button").on("click", function (event) {
     event.preventDefault();
     giantBomb();
 });
