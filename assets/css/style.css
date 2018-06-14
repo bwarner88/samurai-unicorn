@@ -43,6 +43,10 @@ body {
     box-shadow: 5px 5px;
 }
 
+#game-image:hover {
+    cursor: pointer;
+}
+
 #user-choice {
     font-family: 'Lobster', cursive;
     font-family: 'Exo 2', sans-serif;
@@ -83,9 +87,20 @@ body {
     width: 75%;
 }
 
+.user-submit {
+    height: 100%;
+}
+
+#loader-image {
+    font-family: 'Roboto', sans-serif;
+}
 
 @media (max-width: 576px) {
+    
     #main-logo {
         width: 75%;
+    }
+    #start-button {
+        margin-top: 1vh;
     }
 }

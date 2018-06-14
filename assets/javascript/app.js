@@ -1,3 +1,10 @@
+$(window).keydown(function (event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+    }
+});
+
 function getUrlParams(prop) {
     var params = {};
     var search = decodeURIComponent(location.href.slice(location.href.indexOf('?') + 1));
@@ -46,13 +53,13 @@ function giantBomb() {
                 $("#myModal").show();
             };
 
-        //    if (data.results[0].aliases === null) {
-        //        $("#myModal").show();
-        //    }
+            //    if (data.results[0].aliases === null) {
+            //        $("#myModal").show();
+            //    }
 
             $(".display-board").show();
             $(".loading-div").hide();
-            
+
             for (var i = 0; i < data.results.length - 1; i++) {
 
                 $("#user-choice").text(userParam.search.toLowerCase().replace(/\b[a-z]/g, function (letter) {
@@ -95,12 +102,11 @@ function giantBomb() {
     $("#game-input").val("");
 }
 
-//USER INPUT GAME SEARCH ON MAIN PAGE, CLICKING SEARCH SAVES VALUE OF INPUT
-$("#start-button, #search-button").on("click", function (event) {
-    event.preventDefault()
-    // $("#game-input").submit();
-    gameName = $("#game-input").val().trim();
-    location.href = "./gamepage.html?search=" + gameName;
+//USER INPUT GAME SEARCH ON MAIN PAGE, SEARCH SAVES VALUE OF INPUT
+$("#game-input").on("change", function (event) {    
+        event.preventDefault()
+        gameName = $("#game-input").val().trim();
+        location.href = "./gamepage.html?search=" + gameName;
 });
 
 //CHECK TO SEE WE'RE ON GAMEPAGE
@@ -150,10 +156,9 @@ if (whatPage === 'result') {
 }
 
 //Create on click event to search for a video game
-$("#search-button", "#start-button").on("click", function (event) {
+$("#game-input").on("change", function (event) {
     event.preventDefault();
     giantBomb();
-
 });
 
 // Create an onlick event where if you click on a specific game image you can get specific results
